@@ -8,6 +8,12 @@
 
 #read and diplay image
 #Type ur code here
+import cv2
+    image=cv2.imread('meow.jpg',1)
+    image=cv2.resize(image,(400,300))
+    cv2.imshow('MAHESH RAJ PUROHIT J',image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
 
 # In[ ]:
@@ -15,6 +21,9 @@
 
 #WRITE AN IMAGE
 #Type ur code here
+import cv2
+    image=cv2.imread('meow.jpg',0)
+    cv2.imwrite('d.jpg',image)
 
 # Save the original image to a file
 original_output_path = "image path"
@@ -39,6 +48,19 @@ print(f"Saved image saved to: {new_output_path}")
 
 #ACCESSING ROWS AND COLUMNS
 #Type ur code here
+import random
+    import cv2
+    image=cv2.imread('meow.jpg',1)
+    image=cv2.resize(image,(400,400))
+    for i in range (150,200):
+      for j in range(image.shape[1]):
+          image[i][j]=[random.randint(0,255),
+                       random.randint(0,255),
+                       random.randint(0,255)] 
+    cv2.imshow('part image',image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
 # Get the shape of the image (rows, columns, channels)
 
 print(f"Image Shape: Rows={rows}, Columns={columns}, Channels={channels}")
@@ -57,6 +79,16 @@ image[:, 0] = np.random.randint(0, 256, size=(rows, channels))  # Random values 
 #Cut and paste the image
 
 #Type ur code here
+import cv2
+    image=cv2.imread('meow.jpg',1)
+    image=cv2.resize(image,(400,400))
+    tag =image[130:200,110:190]
+    image[110:180,120:200] = tag
+    cv2.imshow('partimage1',image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+
 # Display the original image
 
 #Type ur code here
@@ -78,6 +110,21 @@ image[] = cut_region
 #######COLOR CONVERSION
 ##Convert BGR and RGB to HSV and GRAY
 #Type ur code here
+import cv2
+img = cv2.imread('meow.jpg',1)
+img = cv2.resize(img,(300,200))
+cv2.imshow('Original Image',img)
+hsv1 = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+cv2.imshow('BGR2HSV',hsv1)
+hsv2 = cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
+cv2.imshow('RGB2HSV',hsv2)
+gray1 = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+cv2.imshow('BGR2GRAY',gray1)
+gray2 = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
+cv2.imshow('RGB2GRAY',gray2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
 # Convert BGR to RGB
 image_rgb = (image_bgr, cv2.COLOR_BGR2RGB)
 
